@@ -6,10 +6,14 @@ import { MaterializeModule } from 'angular2-materialize';
 
 // Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { TweetCardComponent } from './tweet-card/tweet-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    TweetCardComponent
   ],
   imports: [
     BrowserModule,
