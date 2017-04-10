@@ -1,6 +1,6 @@
 <div class="row">
   <h4 class="center-align">Tweeeets</h4>
-  <div *ngFor="let card of cards" class="col s4">
+  <div *ngFor="let card of cards" class="col s12">
       <div class="card horizontal">
         <div class="card-image">
           <!--<img src="http://lorempixel.com/100/190/nature/6">-->
@@ -12,6 +12,8 @@
           <div class="card-action">
             <a href="#">EDIT</a>
             <a href="#">REMOVE</a>
+            <a href="">LIKE</a>
+            <p>LIKES: {{ card }}</p>
           </div>
         </div>
       </div>
