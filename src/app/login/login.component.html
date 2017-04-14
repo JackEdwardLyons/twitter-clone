@@ -21,7 +21,7 @@
       </div>
 
       <div class="col s6" [ngSwitch]="userName">
-        <a *ngSwitchCase="''"
+        <a *ngSwitchCase="!!userName"
             class="waves-effect waves-light btn right" 
             (click)="login(form)">LOGIN
         </a>
@@ -35,13 +35,13 @@
 
   
   <!-- Login with FB and Google -->
-  <div class="col s12 center">
+  <div *ngIf="!userName" class="col s12 center">
     <a (click)="authLogin('facebook')" class="waves-effect waves-light btn-primary m-t-b">
       <i class="material-icons right">book</i>FACEBOOK
     </a>
   </div>
   
-  <div class="col s12 center">
+  <div *ngIf="!userName" class="col s12 center">
     <a (click)="authLogin('google')" class="waves-effect waves-light btn-primary ">
       <i class="material-icons right">cloud</i>GOOGLE
     </a>  
