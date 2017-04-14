@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,16 +10,20 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
   providers: [ AngularFire ]
 })
 export class LoginComponent implements OnInit {
-  
+  private router: Router;
   errorMessage: String;
+  user = {};
 
-  constructor(private ngFire: AngularFire) { 
+  constructor(public ngFire: AngularFire) { 
     ngFire.auth.subscribe(auth => {
       if (auth) {
-        console.log('user signed in');
-        // router.navigate(['']);
+        // logged in
+        this.user = auth;
+      } else {
+        // not logged in
+        this.user = {};
       }
-    })
+    });
   }
   
   ngOnInit() {

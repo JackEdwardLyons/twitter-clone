@@ -2,14 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+// Materialize
 import { MaterializeModule } from 'angular2-materialize';
-import { AngularFireModule } from 'angularfire2';
-import { RouterModule, Routes } from '@angular/router'; 
-
+// Firebase
+import { AngularFireModule, AuthMethods, AuthProviders  } from 'angularfire2';
+// Routes
+import { routes } from './app.router';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TweetCardComponent } from './tweet-card/tweet-card.component';
+import { MessageComponent } from './message/message.component';
 
 // Initialize Firebase
 export const fireBaseConfig = {
@@ -21,25 +24,25 @@ export const fireBaseConfig = {
     messagingSenderId: "933366935947"
 };
 
-const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent }
-]
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TweetCardComponent
+    TweetCardComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     MaterializeModule,
-    RouterModule.forRoot(routes),
-    AngularFireModule.initializeApp(fireBaseConfig)
+    routes,
+    AngularFireModule.initializeApp(fireBaseConfig, {
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup
+    })
   ],
+  exports: [ BrowserModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

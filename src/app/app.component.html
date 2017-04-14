@@ -1,7 +1,7 @@
 <nav class="default-primary-color">
   <div class="">
     <div class="nav-wrapper ">
-      <a href="#" class="brand-logo">Tweeter</a>
+      <a [routerLink]="['/home']" class="brand-logo">Tweeter</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Username: Jack Lyons</a></li>
         <li><a href="collapsible.html">Login</a></li>
@@ -11,18 +11,10 @@
 </nav>
 
 <div class="v-light-primary-color main-container">
-  <!--<router-outlet></router-outlet>-->
+  
   <!-- Message input -->
   <div class="row">
-    <form class="col s3">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Write message here...</label>
-        </div>
-      </div>
-    </form>
+    <app-message></app-message>
 
     <div class="col s6">
       <app-tweet-card></app-tweet-card>
@@ -33,5 +25,5 @@
     </div>
 
   </div>
-
+<router-outlet></router-outlet>
 </div>
