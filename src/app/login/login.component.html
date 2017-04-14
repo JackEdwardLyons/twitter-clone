@@ -1,14 +1,19 @@
-
-<form class="col s12">
+<p class="danger">{{ errorMessage }}</p>
+<form class="col s12" #form="ngForm">
+  
   <div class="row">
+    
     <div class="input-field col s6">
-      <input id="email" type="email" class="validate">
+      
+      <!-- ngModel defines the fields within the form Model -->
+      <input name="email" type="email" ngModel class="validate">
       <label for="email">Email</label>
     </div>
     <div class="input-field col s6">
-      <input id="password" type="password" class="validate">
+      <input name="password" type="password" ngModel class="validate">
       <label for="password">Password</label>
     </div>
   </div>
-  <a class="waves-effect waves-light btn">REGISTER</a>
+  <a class="waves-effect waves-light btn" (click)="signup(form)">SIGN UP</a>
+  <a class="waves-effect waves-light btn" (click)="login(form)">LOG IN</a>
 </form>
