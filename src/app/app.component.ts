@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  public loggedInUser: String;
 
-  constructor() { }
+  constructor(public ngFire: AngularFire) { }
+
+  getUserName(event) {
+    this.loggedInUser = event;
+  }
+
   
 }

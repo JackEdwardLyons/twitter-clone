@@ -2,7 +2,8 @@
 .dark-primary-color    { background: #00796B; }
 .default-primary-color { background: #009688; }
 .light-primary-color   { background: #B2DFDB; }
-.v-light-primary-color { background: #F1F5F3; };
+.v-light-primary-color { background: #F1F5F3; }
+.snow-background       { background: snow; }
 .text-primary-color    { color: #FFFFFF; }
 .accent-color          { background: #00BCD4; }
 .primary-text-color    { color: #212121; }
@@ -12,5 +13,8 @@
 /* Utilities */
 .main-container {
     padding-top: 2rem;
+}
+.m-t-b {
+    margin: 1em 0;
 }
 

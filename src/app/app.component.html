@@ -3,8 +3,8 @@
     <div class="nav-wrapper ">
       <a [routerLink]="['/home']" class="brand-logo">Tweeter</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Username: Jack Lyons</a></li>
-        <li><a href="collapsible.html">Login</a></li>
+        <li><a *ngIf="loggedInUser !== ''" href="">Logged in as: {{ loggedInUser }}</a></li>
+        <li><a>Logout</a></li>
       </ul>
     </div>
   </div>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="col s3">
-      <app-login></app-login>
+      <app-login #login (newUser)="getUserName($event)"></app-login>
     </div>
 
   </div>

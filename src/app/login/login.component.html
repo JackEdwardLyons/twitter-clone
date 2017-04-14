@@ -1,25 +1,49 @@
 <h4 class="center-align">Login</h4>
-<p class="danger">{{ errorMessage }}</p>
-<form class="col s12 login" #form="ngForm">
+
+<div *ngIf="user" class="row login">
+  <p *ngIf="formError" class="danger">{{ errorMessage }}</p>
+  <form class="col s12" #form="ngForm">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <!-- ngModel defines the fields within the form Model -->
+        <input name="email" type="email" ngModel class="validate">
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input name="password" type="password" ngModel class="validate">
+        <label for="password">Password</label>
+      </div>
+
+      <div class="col s6">
+        <a *ngIf="!userName" class="waves-effect waves-light btn left" (click)="signup(form)">SIGNUP</a>
+      </div>
+
+      <div class="col s6" [ngSwitch]="userName">
+        <a *ngSwitchCase="''"
+            class="waves-effect waves-light btn right" 
+            (click)="login(form)">LOGIN
+        </a>
+        <a *ngSwitchDefault
+            class="waves-effect waves-light btn right" 
+            (click)="logout()">LOGOUT
+        </a>
+      </div>
+    </div>
+  </form>
+
   
-  <div class="row">
-    
-    <div class="input-field col s12">
-      <!-- ngModel defines the fields within the form Model -->
-      <input name="email" type="email" ngModel class="validate">
-      <label for="email">Email</label>
-    </div>
-    <div class="input-field col s12">
-      <input name="password" type="password" ngModel class="validate">
-      <label for="password">Password</label>
-    </div>
-    <div class="col sm6">
-      <a class="waves-effect waves-light btn left" (click)="signup(form)">SIGN UP</a>
-    </div>
-    <div class="col sm6">
-      <a class="waves-effect waves-light btn right" (click)="login(form)">LOG IN</a>
-    </div>
-    
+  <!-- Login with FB and Google -->
+  <div class="col s12 center">
+    <a (click)="authLogin('facebook')" class="waves-effect waves-light btn-primary m-t-b">
+      <i class="material-icons right">book</i>FACEBOOK
+    </a>
   </div>
   
-</form>
+  <div class="col s12 center">
+    <a (click)="authLogin('google')" class="waves-effect waves-light btn-primary ">
+      <i class="material-icons right">cloud</i>GOOGLE
+    </a>  
+  </div>
+</div>
