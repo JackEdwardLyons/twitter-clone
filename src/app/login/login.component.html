@@ -5,13 +5,13 @@
   <form class="col s12" #form="ngForm">
 
     <div class="row">
-      <div class="input-field col s12">
+      <div *ngIf="!userName" class="input-field col s12">
         <!-- ngModel defines the fields within the form Model -->
         <input name="email" type="email" ngModel class="validate">
         <label for="email">Email</label>
       </div>
 
-      <div class="input-field col s12">
+      <div *ngIf="!userName" class="input-field col s12">
         <input name="password" type="password" ngModel class="validate">
         <label for="password">Password</label>
       </div>
@@ -19,16 +19,20 @@
       <div class="col s6">
         <a *ngIf="!userName" class="waves-effect waves-light btn left" (click)="signup(form)">SIGNUP</a>
       </div>
-
-      <div class="col s6" [ngSwitch]="userName">
-        <a *ngSwitchCase="!!userName"
-            class="waves-effect waves-light btn right" 
-            (click)="login(form)">LOGIN
-        </a>
-        <a *ngSwitchDefault
-            class="waves-effect waves-light btn right" 
-            (click)="logout()">LOGOUT
-        </a>
+      <div class="row" [ngSwitch]="userName">
+        <div class="col s6">
+          <a *ngSwitchCase="!!userName"
+              class="waves-effect waves-light btn right" 
+              (click)="login(form)">LOGIN
+          </a>
+        </div>
+        <div class="col s12">
+          <p>You are now logged in!</p>
+          <a *ngSwitchDefault
+              class="waves-effect waves-light btn center-item" 
+              (click)="logout()">LOGOUT
+          </a>
+        </div>
       </div>
     </div>
   </form>

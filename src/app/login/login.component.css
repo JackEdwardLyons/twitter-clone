@@ -5,3 +5,7 @@
     border-radius: 2px;
 }
 
+.center-item {
+    margin: 0 auto;
+    width: 100%;
+}

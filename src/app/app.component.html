@@ -14,14 +14,16 @@
   
   <div class="row">
     <!-- Message input -->
-    <app-message></app-message>
-
-    <div class="col s6">
+    <form class="col" [ngClass]="{'m3': loggedInUser, 'm1': !user}">
+      <app-message *ngIf="loggedInUser"></app-message>
+    </form>
+    
+    <div class="col m6">
       <!-- Tweet Cards -->
       <app-tweet-card></app-tweet-card>
     </div>
 
-    <div class="col s3">
+    <div class="col m3">
       <!-- Login -->
       <app-login #login (newUser)="getUserName($event)"></app-login>
     </div>
