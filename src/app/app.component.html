@@ -4,7 +4,6 @@
       <a [routerLink]="['/home']" class="brand-logo">Tweeter</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a *ngIf="loggedInUser !== ''" href="">Logged in as: {{ loggedInUser }}</a></li>
-        <li><a>Logout</a></li>
       </ul>
     </div>
   </div>
@@ -12,15 +11,18 @@
 
 <div class="v-light-primary-color main-container">
   
-  <!-- Message input -->
+  
   <div class="row">
+    <!-- Message input -->
     <app-message></app-message>
 
     <div class="col s6">
+      <!-- Tweet Cards -->
       <app-tweet-card></app-tweet-card>
     </div>
 
     <div class="col s3">
+      <!-- Login -->
       <app-login #login (newUser)="getUserName($event)"></app-login>
     </div>
 

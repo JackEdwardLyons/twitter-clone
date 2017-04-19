@@ -35,14 +35,11 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   returnUserName() {
     this.newUser.emit(this.userName);
   }
-
-  
 
   // Email Signup
   signup(form) {
@@ -103,7 +100,5 @@ export class LoginComponent implements OnInit {
     this.ngFire.auth.logout();
     this.newUser.emit(this.userName = '');
   }
- 
-  
 
 }
